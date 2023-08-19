@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        label 'wsl'
+    }
+    
+    stages {
+        stage('Create Text File') {
+            steps {
+                script {
+                    def text = 'Hello, Jenkins!'
+                    writeFile file: 'output.txt', text: text
+                    echo "Text file created with content: ${text}"
+                }
+            }
+        }
+    }
+}
